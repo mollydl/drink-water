@@ -1,0 +1,170 @@
+html, body{
+  margin: 0;
+  padding: 0;
+}
+.w100{
+  width: 100%;
+}
+.backwack{
+  -webkit-filter: grayscale(100%); 
+  -moz-filter: grayscale(100%); 
+  -ms-filter: grayscale(100%); 
+  -o-filter: grayscale(100%); 
+  filter:progid:DXImageTransform.Microsoft.BasicImage(grayscale=1);  
+  _filter:none; 
+}
+.max-box{
+  height: 200px;
+  width: 400px;
+  background: url('../img/back.jpg') no-repeat;
+  background-size: 100% 100% ;
+  position: relative;
+}
+.xiaoyazi{
+  height: 40px;
+  width: 40px;
+  background: url('../img/xiaoyazi.png') no-repeat;
+  background-size: 100% 100%;
+  position: absolute;
+  bottom: 5px;
+  left: calc(0% - 20px);
+  transition: all 0.3s;
+  animation: duck 0.5s linear infinite alternate;
+}
+@keyframes duck{
+  0% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(10deg);
+  }
+}
+.roasted-duck{
+  height: 50px;
+  width: 50px;
+  background: url('../img/kaoya.png') no-repeat;
+  background-size: 100% 100%;
+  bottom: 10px;
+}
+/* 进度条 */
+.seep-box{
+  background-color: #e1666b;
+  height: 10px;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.seep-box>.seep-item{
+  background-color: #0bdf40;
+  height: 100%;
+  width: 0%;
+  transition: all 0.3s;
+}
+
+/* 按钮组 */
+.btn-list{
+  display: flex;
+  justify-content: flex-end;
+}
+.btn-list>img{
+  height: 30px;
+  margin: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-list>img:hover{
+  height: 34px;
+  transition: all 0.2s;
+}
+/* 喝水描述 */
+.msg-box{
+  position: absolute;
+  color: #fff;
+  font-size: 14px;
+  left: 30px;
+  top: 40%;
+  text-shadow: 2px 2px 5px #000;
+  display: none;
+}
+
+/* 设置弹层 */
+.set-modal{
+  background-color: #fff;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 100;
+  display: none;
+}
+.mod-title{
+  display: flex;
+  height: 40px;
+  align-items: center;
+  padding: 0 20px;
+  background-color: #f5f5f5;
+  font-size: 14px;
+}
+.mod-title>.left{
+  flex-grow: 1;
+  font-size: 14px;
+}
+.mod-title>.right{
+  width: 40px;
+  text-align: right;
+  cursor: pointer;
+}
+.mod-title>.right>img{
+  height: 24px;
+}
+.form-list{
+  padding: 0 20px;
+}
+.form-list>.item{
+  display: flex;
+  height: 30px;
+  align-items: center;
+}
+.form-list>.item>.left{
+  display: flex;
+  width: 80px;
+}
+.form-list>.item>.right{
+  display: flex;
+  flex-grow: 1;
+}
+.form-btn-name{
+  display: flex;
+}
+.form-btn-name>.item{
+  display: flex;
+  width: 50%;
+  height: 30px;
+  align-items: center;
+}
+.form-btn-name>.item>.left{
+  display: flex;
+  width: 70px;
+  justify-content: center;
+}
+.form-btn-name>.item>.right{
+  display: flex;
+  flex-grow: 1;
+}
+.modal-foort{
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0 20px;
+}
+.suc-btn{
+  padding: 6px 12px;
+  background-color: #0bdf40;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+}
+
