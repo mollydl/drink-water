@@ -4,12 +4,11 @@
 
 😲身体是革命的本钱，小鸭子为了让大家喝水也是操碎了心，请大家爱惜身体，悉心照顾好小鸭子~~~
 
-
-![url](http://tool.edian.xyz/xiaoyazi/heshui.jpg)
-
-<p align="center">
-  <img width="900" src="http://tool.edian.xyz/xiaoyazi/heshui.jpg">
-</p>
+<div align="center">
+  <img width="30%" src="http://tool.edian.xyz/xiaoyazi/heshui.jpg">
+  <img width="30%" src="http://tool.edian.xyz/xiaoyazi/baner1.jpg">
+  <img width="30%" src="http://tool.edian.xyz/xiaoyazi/baner2.jpg">
+</div>
 
 ## 主要功能
 
