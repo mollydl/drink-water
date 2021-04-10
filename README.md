@@ -4,6 +4,13 @@
 
 😲身体是革命的本钱，小鸭子为了让大家喝水也是操碎了心，请大家爱惜身体，悉心照顾好小鸭子~~~
 
+
+![url](http://tool.edian.xyz/xiaoyazi/heshui.jpg)
+
+<p align="center">
+  <img width="900" src="http://tool.edian.xyz/xiaoyazi/heshui.jpg">
+</p>
+
 ## 主要功能
 
 - 小鸭子默认30分钟提醒码友喝一次水，如果小鸭子游到对岸了，你还没有喝水的话，可怜的小鸭子就会变成一只烤鸭😭
