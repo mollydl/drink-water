@@ -1,6 +1,6 @@
 {
 	"manifest_version": 2,
-	"name": "drink-water",
+	"name": "水货",
 	"version": "1.0.0",
 	"description": "小鸭子叫你喝水啦~~~",
 	"icons":{
@@ -14,7 +14,7 @@
 		"default_popup": "./popup.html"
 	},
 	"background": {
-			"page": "./background.html"
+		"page": "./background.html"
 	},
 	"permissions": [
 		"notifications",

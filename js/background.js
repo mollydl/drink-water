@@ -72,7 +72,7 @@ chrome.notifications.onButtonClicked.addListener(function (id, btnIndex) {
 // 设置小鸭子下标
 function iconTimer(num=0){
   const text = num < duration ? Math.floor(num / 60) + '' : '危'
-  const color = num < duration ? '#0bdf40' : '#ff4000'
+  const color = num < duration ? '#1daeff' : '#ff4000'
   const cb = chrome.browserAction
   cb.setBadgeText({
       text: text
