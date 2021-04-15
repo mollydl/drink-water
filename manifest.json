@@ -17,8 +17,6 @@
 		"page": "./background.html"
 	},
 	"permissions": [
-		"notifications",
-		"webRequestBlocking",
-		"storage"
+		"notifications"
 	]
 }
