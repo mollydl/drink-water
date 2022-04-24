@@ -1,99 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>快喝水</title>
-  <link rel="stylesheet" href="./css/popup.css">
-</head>
-<body>
-  <div id="maxBoxId" class="max-box">
-    <div id="xiaoyaziId" class="xiaoyazi"></div>
-    <div class="seep-box">
-      <div id="seepItemId" class="seep-item"></div>
-    </div>
-    <div class="btn-list">
-      <img id="resetInitId" src="./img/nipple.png" title="喝水">
-      <img id="suspendTimeId" src="./img/timers.png" title="暂停时间">
-      <img id="setupId" src="./img/setup.png" title="设置">
-    </div>
-    <div id="msgtextId" class="msg-box"></div>
-    <div id="modalSetId" class="set-modal">
-      <div class="mod-title">
-        <div class="left">个性化设置</div>
-        <div id="closeModalId" class="right">
-          <img src="./img/close.png">
-        </div>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>快喝水</title>
+    <link rel="stylesheet" href="./css/popup.css" />
+  </head>
+
+  <body>
+    <div id="maxBoxId" class="max-box">
+      <div id="xiaoyaziId" class="xiaoyazi"></div>
+      <div class="seep-box">
+        <div id="seepItemId" class="seep-item"></div>
       </div>
-      <div class="form-list">
-        <div class="item">
-          <div class="left">喝水间隔</div>
-          <div class="right">
-            <select id="formTime" class="w100">
-              <option value="1800">30分钟</option>
-              <option value="3600">60分钟</option>
-            </select>
-          </div>
-        </div>
-        <div class="item">
-          <div class="left">提示标题</div>
-          <div class="right">
-            <input 
-              id="formTitle" 
-              class="w100"
-              type="text" 
-              maxlength="6" 
-              placeholder="最大6个字符" 
-            >
-          </div>
-        </div>
-        <div class="item">
-          <div class="left">提示内容</div>
-          <div class="right">
-            <input 
-              id="formCon" 
-              class="w100"
-              type="text" 
-              maxlength="26" 
-              placeholder="最大26个字符" 
-            >
-          </div>
-        </div>
-        <div class="form-btn-name">
-          <div class="item">
-            <div class="left">左按钮</div>
-            <div class="right">
-              <input 
-                id="formLeftBtn" 
-                class="w100"
-                type="text" 
-                maxlength="4" 
-                placeholder="最大4个字符" 
-              >
-            </div>
-          </div>
-          <div class="item">
-            <div class="left">右按钮</div>
-            <div class="right">
-              <input 
-                id="formRightBtn" 
-                class="w100"
-                type="text" 
-                maxlength="4" 
-                placeholder="最大4个字符" 
-              >
-            </div>
-          </div>
-        </div>
+      <div class="btn-list">
+        <img id="resetInitId" src="./img/nipple.png" title="喝水" />
+        <img id="changeSkinId" src="./img/pifu.png" title="换肤" />
+        <img id="faceModelId" src="./img/biaoqing.png" title="表情" />
+        <img id="suspendTimeId" src="./img/timers.png" title="暂停时间" />
+        <img id="setupId" src="./img/setup.png" title="设置" />
       </div>
-      <div class="modal-foort">
-        <div id="setUpSub" class="suc-btn">确认</div>
-      </div>
+      <div id="msgtextId" class="msg-box"></div>
+      <!-- 设置小鸭子提醒模态框 -->
+      <div id="SetDuckCom"></div>
+      <!-- 表情包大全模态框 -->
+      <div id="FaceInfoCom"></div>
     </div>
-  </div>
-  <script src="./js/jquery-3.5.1.min.js"></script>
-  <script src="./js/tools.js"></script>
-  <script src="./js/popup.js"></script>
-</body>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/tools.js"></script>
+    <script src="./js/popup.js"></script>
+    <script src="./components/SetDuck/index.js"></script>
+    <script src="./components/FaceInfo/index.js"></script>
+  </body>
 </html>

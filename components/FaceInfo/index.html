@@ -1,0 +1,52 @@
+
+  <div id="modalSetId-1" class="set-modal face-modal">
+    <div class="mod-title">
+      <div class="left">
+        <span>表情大全（点击复制表情）</span>
+        <span id="msgfaceId">复制成功</span>
+      </div>
+      <div id="closeModalId-1" class="right">
+        <img src="./img/close.png" />
+      </div>
+    </div>
+    <div id="faceListId" class="face-list-box">
+      
+    </div>
+  </div>
+
+
+
+<style>
+  .face-modal{
+    background-color: #fff;
+  }
+  .face-modal .mod-title{
+    border-bottom: solid 1px #ebebeb;
+    background-color: #fff;
+  }
+  .face-list-box{
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+    overflow-y: auto;
+    height: calc(100vh - 60px);
+    padding: 10px;
+    align-content: flex-start;
+  }
+  .face-list-box .item{
+    width: 34px;
+    height: 34px;
+    font-size: 24px;
+    text-align: center;
+    line-height: 34px;
+    cursor: pointer;
+  }
+  .face-list-box .item:hover{
+    background-color: #ebebeb;
+  }
+  #msgfaceId{
+    font-size: 16px;
+    color: #4caf50;
+    display: none;
+  }
+</style>

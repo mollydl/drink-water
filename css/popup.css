@@ -16,6 +16,7 @@ html, body{
 .max-box{
   height: 200px;
   width: 400px;
+  overflow-y: hidden;
   background: url('../img/back.jpg') no-repeat;
   background-size: 100% 100% ;
   position: relative;
@@ -56,7 +57,7 @@ html, body{
   left: 0;
 }
 .seep-box>.seep-item{
-  background-color: #0bdf40;
+  background-image: linear-gradient(to right,yellow, red);
   height: 100%;
   width: 0%;
   transition: all 0.3s;
@@ -102,18 +103,21 @@ html, body{
 .mod-title{
   display: flex;
   height: 40px;
-  align-items: center;
+  line-height: 40px;
   padding: 0 20px;
   background-color: rgba(255, 255, 255, 0.7);
-  font-size: 14px;
+  font-size: 16px;
 }
 .mod-title>.left{
   flex-grow: 1;
-  font-size: 14px;
+  font-size: 16px;
 }
 .mod-title>.right{
   width: 40px;
   text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
   cursor: pointer;
 }
 .mod-title>.right>img{
@@ -166,5 +170,14 @@ html, body{
   border-radius: 8px;
   color: #fff;
   cursor: pointer;
+  margin-left: 10px;
+}
+.close-btn{
+  padding: 6px 12px;
+  background-color: #eee;
+  border-radius: 8px;
+  color: #333;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
