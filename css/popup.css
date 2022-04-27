@@ -68,14 +68,20 @@ html, body{
   display: flex;
   justify-content: flex-end;
 }
-.btn-list>img{
-  height: 30px;
-  margin: 10px;
+.btn-list>.item{
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.btn-list>.item>img{
+  width: 28px;
   cursor: pointer;
   transition: all 0.2s;
 }
-.btn-list>img:hover{
-  height: 34px;
+.btn-list>.item>img:hover{
+  width: 36px;
   transition: all 0.2s;
 }
 /* 喝水描述 */

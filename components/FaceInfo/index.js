@@ -20,10 +20,9 @@ $(function () {
     $('#maxBoxId').css({ width: 700 + 'px', height: 700 + 'px' })
   }
   // 关闭弹层
-  $('body').on('click', '#closeModalId-1, #closeModalBtnId-1', function () {
+  $('body').on('click', '#closeModalId-1', function () {
     $('#maxBoxId').css({ width: 400 + 'px', height: 200 + 'px' })
     $('#modalSetId-1').fadeOut()
-
   })
   // 显示表情包弹层
   $('body').on('click', '#faceModelId', function () {

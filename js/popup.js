@@ -17,6 +17,8 @@ $(function () {
     $('#SetDuckCom').load('../components/SetDuck/index.html');
     // 加载表情包大全模块
     $('#FaceInfoCom').load('../components/FaceInfo/index.html');
+    // 加载摸鱼办模块
+    $('#moyuCom').load('../components/Moyu/index.html');
     $('#maxBoxId')[BG.getTimeStart() ? 'addClass' : 'removeClass']('backwack')
     // 初始化调用鸭子移动
     setNodeSeep()
