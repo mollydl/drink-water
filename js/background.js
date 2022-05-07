@@ -121,5 +121,29 @@ function getTimeStart(){
   return timeStopStart
 }
 
+// 解决chrome插件，ajax访问跨域问题 -----------
+function removeMatchingHeaders(headers, regex) {
+  for (var i = 0, header; (header = headers[i]); i++) {
+    if (header.name.match(regex)) {
+      headers.splice(i, 1);
+      return;
+    }
+  }
+}
+
+function responseListener(details) {
+  removeMatchingHeaders(details.responseHeaders, /access-control-allow-origin/i);
+  details.responseHeaders.push({ name: 'Access-Control-Allow-Origin', value: '*' });
+  return { responseHeaders: details.responseHeaders };
+}
+
+chrome.webRequest.onHeadersReceived.addListener(responseListener, {
+  urls: ['*://*/*']
+}, [
+  'blocking',
+  'responseHeaders',
+  'extraHeaders'
+]);
+// 解决chrome插件，ajax访问跨域问题 ----------- end
 
 
