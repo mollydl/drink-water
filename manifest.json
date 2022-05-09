@@ -20,7 +20,7 @@
 		"notifications",
 		"webRequest", 
 		"webRequestBlocking", 
-		"http://v.juhe.cn/*"
+		"https://www.coderutil.com/*"
 	],
 	"content_scripts": [
 		{

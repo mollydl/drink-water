@@ -8,9 +8,10 @@ $(function () {
     const calendarDay = getLoacl({key:'calendarDay'})
     const toutiao = getLoacl({key:'toutiao'})
     !calendarDay && getDate();
-    !toutiao && getTouTiao();
-    setMyTitle(calendarDay)
-    setTouTiaoList(toutiao)
+    // !toutiao && getTouTiao();
+    // setMyTitle(calendarDay)
+    getTouTiao();
+    // setTouTiaoList(toutiao)
   })
   // 关闭弹层
   $('body').on('click', '#closeModalId-2', function () {
@@ -35,10 +36,21 @@ $(function () {
       key: toutiaoKey,
       page_size:10
     }
-    $.post('http://v.juhe.cn/toutiao/index', params, function ({result}) {
-      setLoacl({key:'toutiao', val:result.data})
-      setTouTiaoList(result.data)
+    $.ajax({
+      headers: {
+        'access-key': "43be388d9d0e3e3f46b029eb9bd99c27",
+        'secret-key': "9f902e85dfd766753262b4dc7ddba89e",
+    },
+    type: "get",
+    url: "https://www.coderutil.com/api/resou/v1/weibo",
+    success: function (data) {
+      console.log(data)
+    }
     })
+    // $.post('https://www.coderutil.com/api/resou/v1/weibo', params, function ({result}) {
+    //   setLoacl({key:'toutiao', val:result.data})
+    //   setTouTiaoList(result.data)
+    // })
   }
   // 设置标题内容
   function setMyTitle(data){
