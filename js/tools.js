@@ -53,3 +53,12 @@ function parseTime(time, cFormat) {
   })
   return time_str
 }
+// 防抖
+function fangdou(fun, time=500){
+  return (...arge)=>{
+    clearTimeout(fun.id)
+    fun.id = setTimeout(()=>{
+      fun.apply(this, arge)
+    }, time)
+  }
+}

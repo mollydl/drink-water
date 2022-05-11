@@ -1,56 +1,34 @@
 const wannianliKey = 'a7b67c287991698aa071a6d7a189cd43'
 const toutiaoKey = '18b203cd91fb9c5ad9a94e2e0b042f62'
+const headers = {
+  'access-key': "43be388d9d0e3e3f46b029eb9bd99c27",
+  'secret-key': "9f902e85dfd766753262b4dc7ddba89e",
+}
+const baseUrl = 'https://www.coderutil.com'
 $(function () {
   // 显示弹层
   $('body').on('click', '#moyuModelId', function () {
     $('#modalSetId-2').fadeIn()
     $('#maxBoxId').css({ width: 700 + 'px', height: 700 + 'px' })
-    const calendarDay = getLoacl({key:'calendarDay'})
-    const toutiao = getLoacl({key:'toutiao'})
-    !calendarDay && getDate();
-    // !toutiao && getTouTiao();
-    // setMyTitle(calendarDay)
     getTouTiao();
-    // setTouTiaoList(toutiao)
   })
   // 关闭弹层
   $('body').on('click', '#closeModalId-2', function () {
     $('#maxBoxId').css({ width: 400 + 'px', height: 200 + 'px' })
     $('#modalSetId-2').fadeOut()
   })
-  // 获取万年历
-  function getDate() {
-    const date = dayjs(new Date()).format('YYYY-M-D')
-    const params = {
-      key: wannianliKey,
-      date,
-    }
-    $.post('http://v.juhe.cn/calendar/day', params, function ({result}) {
-      setLoacl({key:'calendarDay', val:result.data})
-      setMyTitle(result.data)
-    })
-  }
   // 获取新闻
   function getTouTiao(){
-    const params = {
-      key: toutiaoKey,
-      page_size:10
-    }
     $.ajax({
-      headers: {
-        'access-key': "43be388d9d0e3e3f46b029eb9bd99c27",
-        'secret-key': "9f902e85dfd766753262b4dc7ddba89e",
-    },
-    type: "get",
-    url: "https://www.coderutil.com/api/resou/v1/weibo",
-    success: function (data) {
-      console.log(data)
-    }
+      headers,
+      type: 'get',
+      url: baseUrl+'/api/resou/v1/weibo',
+      data:{size:20},
+      success: function ({data}) {
+        console.log(data)
+        setTouTiaoList(data)
+      }
     })
-    // $.post('https://www.coderutil.com/api/resou/v1/weibo', params, function ({result}) {
-    //   setLoacl({key:'toutiao', val:result.data})
-    //   setTouTiaoList(result.data)
-    // })
   }
   // 设置标题内容
   function setMyTitle(data){
@@ -65,7 +43,7 @@ $(function () {
   function setTouTiaoList(data){
     let str = ``
     data.forEach((e)=>{
-      str+=`<div><a href="${e.url}" target="_blank">${e.title}</a></div>`
+      str+=`<div><a href="${e.url}" target="_blank">${e.keyword}</a></div>`
     })
     $('#toutiaoListId').html(str)
   }
