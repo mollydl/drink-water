@@ -11,6 +11,7 @@ $(function () {
     $('#modalSetId-2').fadeIn()
     $('#maxBoxId').css({ width: 700 + 'px', height: 700 + 'px' })
     getTouTiao();
+    setText();
   })
   // 关闭弹层
   $('body').on('click', '#closeModalId-2', function () {
@@ -23,7 +24,7 @@ $(function () {
       headers,
       type: 'get',
       url: baseUrl+'/api/resou/v1/weibo',
-      data:{size:20},
+      data:{size:15},
       success: function ({data}) {
         console.log(data)
         setTouTiaoList(data)
@@ -31,13 +32,15 @@ $(function () {
     })
   }
   // 设置标题内容
-  function setMyTitle(data){
-    const {weekday,lunar} = data
+  function setText(){
     const datef = parseTime(new Date(),'{y}年{m}月{d}日')
-    const str = `【摸鱼办】：提醒您：摸鱼人！工作再累，一定不要忘记摸鱼哦！有事没事起身去茶水间，
-    去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的每天一分钟，知晓天下事！
-    ${datef} ${weekday} 农历${lunar}`
-    $('#myTitleId').text(str)
+    const week = ['日', '一', '二', '三', '四', '五', '六']
+    var weekNum = new Date().getDay()
+    const str = `【摸鱼办】提醒您：摸鱼人！工作再累，一定不要忘记摸鱼哦！有事没事起身去茶水间，
+    去厕所，去廊道走走别老在工位上坐着，钱是老板的,但命是自己的。`
+    const str2 = `【快乐摸鱼办】${datef} 星期${week[weekNum]}`
+    $('#contentId').text(str)
+    $('#modalTitle').text(str2)
   }
   // 设置头条展示
   function setTouTiaoList(data){

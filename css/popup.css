@@ -1,6 +1,10 @@
-html, body{
+html, body,*{
   margin: 0;
   padding: 0;
+}
+a{
+  text-decoration: none;
+  color: #333;
 }
 .w100{
   width: 100%;

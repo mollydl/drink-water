@@ -1,29 +1,96 @@
 <div id="modalSetId-2" class="set-modal moyu-modal">
   <div class="mod-title">
     <div class="left">
-      <span>摸鱼办</span>
+      <span id="modalTitle"></span>
     </div>
     <div id="closeModalId-2" class="right">
       <img src="./img/close.png" />
     </div>
   </div>
   <div  class="moyu-content-box">
-    <p id="myTitleId"></p>
-    <div id="toutiaoListId"></div>
+    <p id="contentId" class="moyu-text back"></p>
+    <div class="back anli-list">
+        <a class="item" href="http://">B站</a>
+    </div>
+    <div class="back toutiao-box">
+      <div class="title">
+        <div class="title-act">微博热搜</div>
+        <div>知乎热搜</div>
+      </div>
+      <div id="toutiaoListId" class="toutiao-list-text"></div>
+    </div>
   </div>
 </div>
 
 <style>
+  .back{
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 4px;
+  }
   .moyu-modal{
-    background-color: #fff;
+    background: #fff url('../../img/moyubg.jpg') no-repeat;
+    background-size: 100% 100%;
   }
   .moyu-modal .mod-title{
     border-bottom: solid 1px #ebebeb;
-    background-color: #fff;
+    background-color: rgba(255, 255, 255, 0.5);
   }
   .moyu-content-box{
     overflow-y: auto;
     height: calc(100vh - 60px);
     padding: 10px;
+  }
+  .moyu-text{
+    font-size: 16px;
+    color: #333;
+  }
+  .anli-list{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .anli-list>.item{
+    background-color: #1daeff;
+    opacity: 0.8;
+    padding: 4px 12px;
+    border-radius: 4px;
+  }
+  .anli-list>.item:hover{
+    opacity: 1;
+  }
+  .toutiao-box>.title{
+    border-bottom: solid 1px #ccc;
+    margin-bottom: 10px;
+    display: flex;
+  }
+  .toutiao-box>.title>div{
+    height: 100%;
+    width: 80px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 16px;
+    padding-bottom: 8px;
+  }
+  .title-act{
+    color: #1daeff;
+    border-bottom: solid 2px #1daeff;
+    margin-bottom: -2px;
+  }
+  .toutiao-box>.title>div:hover{
+    color: #1daeff;
+    border-bottom: solid 2px #1daeff;
+    margin-bottom: -2px;
+  }
+  .toutiao-box>.title>div:last-child{
+    border-right: none;
+  }
+  .toutiao-list-text a{
+    color: #535151;
+    line-height: 22px;
+    font-size: 14px;
+  }
+  .toutiao-list-text a:hover{
+    color: #1daeff;
   }
 </style>
