@@ -10,21 +10,30 @@
   <div  class="moyu-content-box">
     <p id="contentId" class="moyu-text back"></p>
     <div class="back anli-list">
-        <a class="item" href="http://">B站</a>
+        <a class="item" href="https://toonme.com">照片转卡通画</a>
+        <a class="item" href="https://www.yikm.net">小霸王游戏机</a>
+        <a class="item" href="http://slither.io">贪吃蛇</a>
+        <a class="item" href="http://live.ipanda.com/xmcd">看看大熊猫</a>
+        <a class="item" href="https://www.dpm.org.cn/yygg.html">云游故宫</a>
+        <a class="item" href="https://fakeupdate.net">假装更新系统</a>
+        <a class="item" href="https://geektyper.com">假装是黑客</a>
+        <a class="item" href="https://pointerpointer.com">鼠标在哪里</a>
     </div>
     <div class="back toutiao-box">
-      <div class="title">
-        <div class="title-act">微博热搜</div>
-        <div>知乎热搜</div>
+      <div id="resouTabId" class="title">
+        <div class="item title-act" data-type="weibo">微博热搜</div>
+        <div class="item" data-type="zhihu">知乎热搜</div>
+        <div class="item" data-type="baidu">百度热搜</div>
+        <div class="item" data-type="toutiao">今日头条</div>
       </div>
-      <div id="toutiaoListId" class="toutiao-list-text"></div>
+      <div id="resouListId" class="toutiao-list-text"></div>
     </div>
   </div>
 </div>
 
 <style>
   .back{
-    background-color: rgba(255, 255, 255, 0.5);
+    background-color: rgba(255, 255, 255, 0.6);
     padding: 10px;
     margin-bottom: 10px;
     border-radius: 4px;
@@ -52,9 +61,11 @@
   }
   .anli-list>.item{
     background-color: #1daeff;
+    color: #fff;
     opacity: 0.8;
     padding: 4px 12px;
     border-radius: 4px;
+    margin: 4px;
   }
   .anli-list>.item:hover{
     opacity: 1;
@@ -66,7 +77,7 @@
   }
   .toutiao-box>.title>div{
     height: 100%;
-    width: 80px;
+    width: 100px;
     text-align: center;
     cursor: pointer;
     font-size: 16px;
@@ -87,7 +98,7 @@
   }
   .toutiao-list-text a{
     color: #535151;
-    line-height: 22px;
+    line-height: 28px;
     font-size: 14px;
   }
   .toutiao-list-text a:hover{

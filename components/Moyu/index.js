@@ -1,5 +1,3 @@
-const wannianliKey = 'a7b67c287991698aa071a6d7a189cd43'
-const toutiaoKey = '18b203cd91fb9c5ad9a94e2e0b042f62'
 const headers = {
   'access-key': "43be388d9d0e3e3f46b029eb9bd99c27",
   'secret-key': "9f902e85dfd766753262b4dc7ddba89e",
@@ -10,7 +8,7 @@ $(function () {
   $('body').on('click', '#moyuModelId', function () {
     $('#modalSetId-2').fadeIn()
     $('#maxBoxId').css({ width: 700 + 'px', height: 700 + 'px' })
-    getTouTiao();
+    getReSou();
     setText();
   })
   // 关闭弹层
@@ -19,16 +17,32 @@ $(function () {
     $('#modalSetId-2').fadeOut()
   })
   // 获取新闻
-  function getTouTiao(){
-    $.ajax({
+  const resouObj = {
+    weibo:[],
+    zhihu:[],
+    toutiao:[],
+  }
+  function getReSou(){
+    const params = {
       headers,
       type: 'get',
-      url: baseUrl+'/api/resou/v1/weibo',
-      data:{size:15},
-      success: function ({data}) {
-        console.log(data)
-        setTouTiaoList(data)
-      }
+      data:{size:10},
+    }
+    const list = [
+      {url:baseUrl+'/api/resou/v1/weibo',type:'weibo'},
+      {url:baseUrl+'/api/resou/v1/zhihu',type:'zhihu'},
+      {url:baseUrl+'/api/resou/v1/toutiao',type:'toutiao'},
+      {url:baseUrl+'/api/resou/v1/baidu',type:'baidu'}
+    ]
+    list.forEach(({url, type})=>{
+      $.ajax({
+        ...params,
+        url,
+        success: function ({data}) {
+          resouObj[type] = data
+          type==='weibo' && getReSouList('weibo')
+        }
+      })
     })
   }
   // 设置标题内容
@@ -43,11 +57,20 @@ $(function () {
     $('#modalTitle').text(str2)
   }
   // 设置头条展示
-  function setTouTiaoList(data){
+  function getReSouList(key){
     let str = ``
-    data.forEach((e)=>{
+    resouObj[key].forEach((e)=>{
       str+=`<div><a href="${e.url}" target="_blank">${e.keyword}</a></div>`
     })
-    $('#toutiaoListId').html(str)
+    $('#resouListId').html(str)
   }
+  // 切换热搜tab
+  $('body').on('click', '#resouTabId .item',function(){
+    const type = $(this).attr('data-type')
+    $(this).siblings().removeClass('title-act')
+    $(this).addClass('title-act')
+    
+    getReSouList(type)
+    console.log(type);
+  })
 })
