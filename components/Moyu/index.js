@@ -10,6 +10,7 @@ $(function () {
     $('#maxBoxId').css({ width: 700 + 'px', height: 700 + 'px' })
     getReSou();
     setText();
+    moyuLinkList();
   })
   // 关闭弹层
   $('body').on('click', '#closeModalId-2', function () {
@@ -69,8 +70,39 @@ $(function () {
     const type = $(this).attr('data-type')
     $(this).siblings().removeClass('title-act')
     $(this).addClass('title-act')
-    
     getReSouList(type)
-    console.log(type);
   })
+  // 随机获取一个颜色
+  function getRandomColor(){
+    let color = '#';
+    const randomArr=['0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'];
+    for (let i=0;i<6;i++) {
+        color += randomArr[parseInt(Math.random()*15)];
+    }
+    return color;
+  }
+  // 摸鱼传送门
+  function moyuLinkList(){
+    const list = [
+      {name:'小霸王游戏机', url:'https://www.yikm.net', color:getRandomColor()},
+      {name:'贪吃蛇', url:'http://slither.io', color:getRandomColor()},
+      {name:'合成大西瓜', url:'http://www.wesane.com/game/654', color:getRandomColor()},
+      {name:'看看大熊猫', url:'http://live.ipanda.com/xmcd', color:getRandomColor()},
+      {name:'云游故宫', url:'https://www.dpm.org.cn/yygg.html', color:getRandomColor()},
+      {name:'假装更新系统', url:'https://fakeupdate.net', color:getRandomColor()},
+      {name:'假装是黑客', url:'https://geektyper.com', color:getRandomColor()},
+      {name:'鼠标在哪里', url:'https://pointerpointer.com', color:getRandomColor()},
+      {name:'照片转卡通画', url:'https://toonme.com', color:getRandomColor()},
+      {name:'淦！中幻术了', url:'https://zoomquilt.org', color:getRandomColor()},
+      {name:'沙雕导航', url:'https://shadiao.app', color:getRandomColor()},
+      {name:'置身海洋', url:'https://virtocean.com', color:getRandomColor()},
+      {name:'拥抱大自然', url:'https://asoftmurmur.com', color:getRandomColor()},
+      {name:'60s冥想', url:'https://www.pixelthoughts.co', color:getRandomColor()},
+    ]
+    let str = ''
+    list.forEach((e)=>{
+      str += `<a class='item' target='_blank' style='background-color:${e.color}' href='${e.url}'>${e.name}</a>`
+    })
+    $('#moyuLinkListId').html(str)
+  }
 })

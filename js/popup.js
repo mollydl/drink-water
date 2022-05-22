@@ -86,12 +86,15 @@ $(function () {
   // 换肤、触发juejin.js 换肤方法
   $('#changeSkinId').on('click', function () {
     $("#skinModalId").slideToggle(100)
-    // chrome.tabs.query({ active: true, currentWindow: true }, function (tab) {//获取当前tab
-    //   chrome.tabs.sendMessage(tab[0].id, {
-    //     action: "setJueJinCss",
-    //     skin:"dark-video"
-    //   });
-    // });
+  })
+  $('#skinModalId').on('click', '.btn-box', function(){
+    const type = $(this).attr('data-type')
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tab) {
+      chrome.tabs.sendMessage(tab[0].id, {
+        action: "setJueJinCss",
+        skin:type
+      });
+    });
   })
 })
 

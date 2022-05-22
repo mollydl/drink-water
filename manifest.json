@@ -20,7 +20,8 @@
 		"notifications",
 		"webRequest", 
 		"webRequestBlocking", 
-		"https://www.coderutil.com/*"
+		"https://www.coderutil.com/*",
+		"tabs"
 	],
 	"content_scripts": [
 		{

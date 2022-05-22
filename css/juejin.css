@@ -1,9 +1,4 @@
-
-.jj-dark-box{
-  background-color: #222 !important;
-  color: #aaa !important;
-  border-color: #aaa !important;
-}
+/* 掘金视频模式 */
 .my-video{
   width: 100%;
   height: 100%;
@@ -14,16 +9,121 @@
   z-index: -1;
 }
 
-.jj-dark-box code{
+/* 掘金暗黑模式----------- */
+.jj-dark-box{
   background-color: #222 !important;
+  color: #aaa !important;
+  border-color: #aaa !important;
+}
+/* 代码片段 */
+.jj-dark-box code{
+  background: #222 !important;
+  color: #aaa !important;
+  opacity:1 !important;
+}
+/* 导航 */
+.jj-dark-box .main-header{
+  background: #272727 !important;
+  border-bottom: 1px solid #222 !important;
+}
+.jj-dark-box .notification,
+.jj-dark-box .menu, 
+.jj-dark-box .search-form{
+  background: #272727 !important;
+}
+.jj-dark-box .seach-icon-container{
+  background: #3a3a3a !important;
+}
+.jj-dark-box .typehead{
+  background: #3a3a3a !important;
+  color: #aaa !important;
+}
+.jj-dark-box .typehead div{
+  color: #aaa !important;
+}
+.jj-dark-box .typehead .list div:hover{
+  background:#272727 !important;
+}
+.jj-dark-box .main-header .nav-item>a{
+  color: #eee !important;
+}
+/* 文章内容板块 */
+.jj-dark-box .main-area>*{
+  background-color: #272727 !important;
+}
+/* 文章标题 */
+.jj-dark-box .article-title, .jj-dark-box .title{
+  color: #aaa !important;
+}
+/* 文章内容细节 */
+.jj-dark-box .markdown-body{
+  color: #aaa !important;
+  background: #272727 !important;
+}
+/* 右边栏目 */
+.jj-dark-box .sidebar p,
+.jj-dark-box .sidebar span,
+.jj-dark-box .sidebar a,
+.jj-dark-box .sidebar div
+{
+  color: #aaa !important;
+  background: #272727 !important;
+}
+.jj-dark-box .article-catalog{
+  background: #272727 !important;
+}
+/* 悬浮按钮 */
+.jj-dark-box .suspension-panel .btn, .jj-dark-box .panel-btn{
+  background-color: initial !important;
+  border: 1px solid #aaa !important;
+}
+.jj-dark-box .panel-btn.with-badge:after{
+  background-color: #777 !important;
+}
+/* 评论区 */
+.jj-dark-box .input-box{
+  background: #3a3a3a !important;
+  border: 1px solid #777 !important;
+}
+.jj-dark-box .rich-input{
+  color: #aaa !important;
+}
+.jj-dark-box .sub-comment-list{
+  background: #3a3a3a !important;
+}
+.jj-dark-box .parent-wrapper{
+  background: #3a3a3a !important;
+  border: 1px solid #777 !important;
+}
+.jj-dark-box .content-box a,
+.jj-dark-box .content-box p,
+.jj-dark-box .content-box span,
+.jj-dark-box .content-box div
+{
+  color: #aaa !important;
+}
+/* 更多文章推荐 */
+.jj-dark-box .entry{
+  background: #272727 !important;
+}
+.jj-dark-box .content-wrapper{
+  border-bottom: 1px solid #333 !important;
+}
+.jj-dark-box .content-wrapper a,
+.jj-dark-box .content-wrapper p,
+.jj-dark-box .content-wrapper span,
+.jj-dark-box .content-wrapper div
+{
+  color: #aaa !important;
+}
+.jj-dark-box .fetch-more-comment,.jj-dark-box .column-container{
+  background: #3a3a3a !important;
+  color: #aaa !important;
 }
 
-/*
-	颜色较多的情况，建议使用CSS变量对颜色值进行管理
-*/
-/* :root {
-  color-scheme: light dark;
-  background: black;
-  color: white;
-} */
-
+.jj-dark-box .title .sort{
+  background: #3a3a3a !important;
+}
+.jj-dark-box .title .sort .active{
+  background: #272727 !important;
+}

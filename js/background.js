@@ -146,4 +146,9 @@ chrome.webRequest.onHeadersReceived.addListener(responseListener, {
 ]);
 // 解决chrome插件，ajax访问跨域问题 ----------- end
 
+chrome.tabs.onUpdated.addListener(function (id, info, tab) {
+  console.log(id);
+  console.log(info);
+  console.log(tab);
+});
 
