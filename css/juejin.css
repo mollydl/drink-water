@@ -11,13 +11,16 @@
 
 /* 掘金暗黑模式----------- */
 .jj-dark-box{
-  background-color: #222 !important;
+  background-color: #121212 !important;
   color: #aaa !important;
   border-color: #aaa !important;
 }
 /* 代码片段 */
 .jj-dark-box code{
-  background: #222 !important;
+  background: #3a3a3a !important;
+}
+.jj-dark-box code.hljs{
+  background: #121212 !important;
   color: #aaa !important;
   opacity:1 !important;
 }
@@ -52,7 +55,10 @@
   background-color: #272727 !important;
 }
 /* 文章标题 */
-.jj-dark-box .article-title, .jj-dark-box .title{
+.jj-dark-box .article-title, 
+.jj-dark-box .title, 
+.jj-dark-box .comment-form .header-title,
+.jj-dark-box .title-content{
   color: #aaa !important;
 }
 /* 文章内容细节 */
@@ -116,7 +122,7 @@
 {
   color: #aaa !important;
 }
-.jj-dark-box .fetch-more-comment,.jj-dark-box .column-container{
+.jj-dark-box .fetch-more-comment,.jj-dark-box .column-container, .jj-dark-box .markdown-body blockquote{
   background: #3a3a3a !important;
   color: #aaa !important;
 }
@@ -126,4 +132,8 @@
 }
 .jj-dark-box .title .sort .active{
   background: #272727 !important;
+}
+
+.jj-dark-box .item-container:hover{
+  background: #3a3a3a !important;
 }
