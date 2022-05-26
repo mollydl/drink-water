@@ -19,10 +19,15 @@
 .jj-dark-box code{
   background: #3a3a3a !important;
 }
-.jj-dark-box code.hljs{
+.jj-dark-box code.hljs,
+.jj-dark-box code.copyable{
   background: #121212 !important;
   color: #aaa !important;
   opacity:1 !important;
+}
+.jj-dark-box code .hljs-keyword
+{
+  color: #aaa ; 
 }
 /* 导航 */
 .jj-dark-box .main-header{
@@ -58,13 +63,19 @@
 .jj-dark-box .article-title, 
 .jj-dark-box .title, 
 .jj-dark-box .comment-form .header-title,
-.jj-dark-box .title-content{
+.jj-dark-box .title-content,
+.jj-dark-box .popover-box.user-popover{
   color: #aaa !important;
 }
 /* 文章内容细节 */
 .jj-dark-box .markdown-body{
   color: #aaa !important;
   background: #272727 !important;
+}
+.jj-dark-box .markdown-body>p,
+.jj-dark-box .markdown-body li
+{
+  color: #aaa;
 }
 /* 右边栏目 */
 .jj-dark-box .sidebar p,
@@ -112,8 +123,12 @@
 .jj-dark-box .entry{
   background: #272727 !important;
 }
-.jj-dark-box .content-wrapper{
-  border-bottom: 1px solid #333 !important;
+.jj-dark-box .content-wrapper,
+.jj-dark-box .recommended-list-title-wrapper .title{
+  border-bottom: 1px solid #777 !important;
+}
+.jj-dark-box .content-wrapper::before{
+  background: #777 !important;
 }
 .jj-dark-box .content-wrapper a,
 .jj-dark-box .content-wrapper p,
@@ -122,7 +137,12 @@
 {
   color: #aaa !important;
 }
-.jj-dark-box .fetch-more-comment,.jj-dark-box .column-container, .jj-dark-box .markdown-body blockquote{
+.jj-dark-box 
+.fetch-more-comment,
+.jj-dark-box .column-container, 
+.jj-dark-box .markdown-body blockquote,
+.jj-dark-box .markdown-body blockquote>p
+{
   background: #3a3a3a !important;
   color: #aaa !important;
 }

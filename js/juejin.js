@@ -17,18 +17,13 @@ chrome.runtime.onMessage.addListener(
 
 // 一键还原
 function skinInit(){
-
+  $('body').removeClass('jj-dark-box');
+  $('.logo-img').attr('src','https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/e08da34488b114bd4c665ba2fa520a31.svg')
 }
 // 暗黑模式
 function skinDark(){
-  const elBoxs = ['body','div','li','ul','header','article','nav','blockquote','form','input','select','option','button']
-  const elTexts = ['h1','h2','h3','h4','h5','h6','p']
   $('body').addClass('jj-dark-box');
   $('.jj-dark-box .logo-img').attr('src','https://lf-cdn-tos.bytescm.com/obj/static/xitu_extension/static/brand-dark.3111cff6.svg')
-  // [...elBoxs,...elTexts].forEach(el=>{
-  //   $(el).css({'background-color':'#222','color':'#aaa','border-color':'#999'});
-  //   $(el).addClass('jj-dark-box');
-  // })
 }
 // 视频模式-风吹麦浪
 function skinVideoFcml(){
@@ -43,5 +38,11 @@ function skinVideoFcml(){
 function skinVideoFcmlThz(){
 
 }
+
+$(function(){
+  chrome.tabs.onUpdated.addListener(function(tabId, changeInfo, tab) {
+    alert('updated from contentscript');
+  })
+})
 
   

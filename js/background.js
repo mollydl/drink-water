@@ -121,7 +121,7 @@ function getTimeStart(){
   return timeStopStart
 }
 
-// 解决chrome插件，ajax访问跨域问题 -----------
+// 解决chrome插件，ajax访问跨域问题 ----------- start
 function removeMatchingHeaders(headers, regex) {
   for (var i = 0, header; (header = headers[i]); i++) {
     if (header.name.match(regex)) {
@@ -146,9 +146,8 @@ chrome.webRequest.onHeadersReceived.addListener(responseListener, {
 ]);
 // 解决chrome插件，ajax访问跨域问题 ----------- end
 
-chrome.tabs.onUpdated.addListener(function (id, info, tab) {
-  console.log(id);
-  console.log(info);
-  console.log(tab);
+chrome.runtime.onInstalled.addListener(function() {
+  console.log(111);
 });
+
 
