@@ -8,6 +8,8 @@ chrome.runtime.onMessage.addListener(
       'video-fengchuimailang':skinVideoFcml,
       'video-huanghun':skinVideoHh,
       'video-yuai':skinVideoYa,
+      'video-gwysgdsj':skinVideoGwysgdsj,
+      'video-nnhdws':skinVideoNnhdws,
     }
     if (request.action == "setJueJinCss") {
       console.log(request);
@@ -18,11 +20,17 @@ chrome.runtime.onMessage.addListener(
 
 // 一键还原
 function skinInit(){
+  const vid = $('#bg_video')
+  const mid = $('#bg_music')
   $('body').removeClass('jj-dark-box');
+  $('body').removeClass('jj-video-box');
+  vid && vid.remove()
+  mid && mid.remove()
   $('.logo-img').attr('src','https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/e08da34488b114bd4c665ba2fa520a31.svg')
 }
 // 暗黑模式
 function skinDark(){
+  skinInit()
   $('body').addClass('jj-dark-box');
   $('.jj-dark-box .logo-img').attr('src','https://lf-cdn-tos.bytescm.com/obj/static/xitu_extension/static/brand-dark.3111cff6.svg')
 }
@@ -34,7 +42,6 @@ function skinVideoFcml(){
 }
 // 视频模式-黄昏
 function skinVideoHh(){
-  // const vUrl = 'https://cdn.videvo.net/videvo_files/video/free/2018-01/large_watermarked/171124_E1_HD_012_preview.mp4'
   const vUrl = 'https://cdn.videvo.net/videvo_files/video/free/2015-09/large_watermarked/sunrise_over_the_lake2_preview.mp4'
   const aUrl = 'https://www.qqmc.com/mp3/music6874743.mp3'
   videoMooe(vUrl, aUrl)
@@ -45,12 +52,26 @@ function skinVideoYa(){
   const aUrl = 'https://www.qqmc.com/mp3/music38615712.mp3'
   videoMooe(vUrl, aUrl)
 }
+// 视频模式-给我一首歌的时间
+function skinVideoGwysgdsj(){
+  const vUrl = 'https://cdn.videvo.net/videvo_files/video/free/2015-08/large_watermarked/sunrise_01_preview.mp4'
+  const aUrl = 'https://www.qqmc.com/mp3/music440614.mp3'
+  videoMooe(vUrl, aUrl)
+}
+// 视频模式-那女孩对我说
+function skinVideoNnhdws(){
+  const vUrl = 'https://cdn.videvo.net/videvo_files/video/free/2016-10/large_watermarked/160929_151_London_NightTraffic2_1080p_preview.mp4'
+  const aUrl = 'https://www.qqmc.com/mp3/music221804.mp3'
+  videoMooe(vUrl, aUrl)
+}
 
 // 视频模式前置动作
 function videoMooe(vUrl='', aUrl=''){
   const flag = $('.my-video').length <1
   const node = `<video id="bg_video" src='${vUrl}' autoplay loop class='my-video'></video>`
   const audioNode = `<audio id="bg_music" class='my-audio' src='${aUrl}' controls loop autoplay></audio>`
+  const hasDark = $('body').hasClass('jj-dark-box')
+  hasDark && skinInit()
   if(flag){
     $('body').append(node)
     $('body').append(audioNode)
