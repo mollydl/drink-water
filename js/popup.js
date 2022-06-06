@@ -1,5 +1,5 @@
 
-const BG = chrome.extension.getBackgroundPage();
+const BG = chrome.extension.getBackgroundPage()
 const { seepNum, seepDuration } = BG.getBginfo()
 const msgList = [
   { text: '吨~吨~吨~小鸭子喝水啦！' },
@@ -66,8 +66,7 @@ $(function () {
     $('#formRightBtn').val(btnright)
     $('#modalSetId').fadeIn()
   })
-  
-  
+
   // 暂停时间
   $('#suspendTimeId').on('click', function () {
     $('#maxBoxId').toggleClass('backwack')
@@ -86,15 +85,57 @@ $(function () {
   // 换肤、触发juejin.js 换肤方法
   $('#changeSkinId').on('click', function () {
     $("#skinModalId").slideToggle(100)
+    const chex = BG.getHasAudioMute()
+    const opt = localStorage.getItem('bardOpacity')
+    $('#muteModelId').attr('checked', chex)
+    $('#rangeId').val(opt)
   })
   $('#skinModalId').on('click', '.btn-box', function(){
     const type = $(this).attr('data-type')
+    BG.changeAudio({skin:type})
+    const local = BG.getBgLoacl({key: 'skinType', isObj: false})
     chrome.tabs.query({ active: true, currentWindow: true }, function (tab) {
       chrome.tabs.sendMessage(tab[0].id, {
-        action: "setJueJinCss",
-        skin:type
+        actionType:'changeBgm',
+        skinType:local
       });
     });
+  })
+  // 设置播放图标状态
+  function setPausedIcon(){
+    const status = BG.getPaused()
+    if(!status){
+      $('#bgmIconId').addClass('bgm-loading')
+    }else{
+      $('#bgmIconId').removeClass('bgm-loading')
+    }
+  }
+  setPausedIcon()
+  // 控制背景音乐播放，暂停
+  $('body').on('click','#bgmIconId',function(){
+    BG.togglePalyBgm()
+    setPausedIcon()
+  })
+  // 控制文章背景透明度
+  $('body').on('change','#rangeId',function(){
+    const val = $(this).val()
+    localStorage.setItem('bardOpacity', val)
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tab) {
+      chrome.tabs.sendMessage(tab[0].id, {
+        actionType:'changeBard',
+        val
+      });
+    });
+  })
+  // 设置静音模式
+  $('body').on('change', '#muteModelId', function(){
+    const val = $(this).is(':checked')
+    if(val){
+      $('#bgmIconId').removeClass('bgm-loading')
+    }else{
+      $('#bgmIconId').addClass('bgm-loading')
+    }
+    BG.setPlayModel(val)
   })
 })
 

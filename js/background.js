@@ -146,8 +146,90 @@ chrome.webRequest.onHeadersReceived.addListener(responseListener, {
 ]);
 // 解决chrome插件，ajax访问跨域问题 ----------- end
 
-chrome.runtime.onInstalled.addListener(function() {
-  console.log(111);
+// 监听浏览器地址栏变化
+chrome.tabs.onUpdated.addListener(function(tabId,changeInfo,curtab){
+  if(changeInfo.status === 'complete'){ // 表示页面访问结束
+    // 向content_scripts发送消息
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tab) {
+      chrome.tabs.sendMessage(tab[0].id, {
+        actionType: "tabChange",
+        obj:{tabId, changeInfo, curtab}
+      });
+    });
+    const skinType = getLoacl({key:'skinType', isObj:false}) || 'init'
+    const hasJueJin = curtab.url.includes('https://juejin.cn/post')
+    if((skinType!=='init' || skinType !== 'dark') && hasJueJin){
+      changeAudio({skin: skinType})
+    }
+  }
 });
 
+// popup切换歌曲回调
+function changeAudio(data){
+  const micObj = {
+    'video-fengchuimailang':'https://www.qqmc.com/mp3/music239653.mp3',
+    'video-huanghun':'https://www.qqmc.com/mp3/music6874743.mp3',
+    'video-yuai':'https://www.qqmc.com/mp3/music38615712.mp3',
+    'video-gwysgdsj':'https://www.qqmc.com/mp3/music440614.mp3',
+    'video-nnhdws':'https://www.qqmc.com/mp3/music221804.mp3',
+    'video-dafengchui':'https://www.qqmc.com/mp3/music169428024.mp3',
+  }
+  const aUrl = micObj[data.skin]
+  setLoacl({key:'skinType', val:data.skin, isObj:false})
+  const flag = $('#bg_music').length <1
+  const audioNode = `<audio id="bg_music" class='my-audio' src='${aUrl}' controls loop autoplay></audio>`
+  const hasAudioMute = getLoacl({key:'hasAudioMute'})
+  if(flag){
+    $('body').append(audioNode)
+  }else{
+    $('#bg_music').attr('src',aUrl)
+  }
+  audioToPause(hasAudioMute.chexVal)
+}
+// 获取背景缓存
+function getBgLoacl({key='', isObj=true}){
+  return getLoacl({key, isObj})
+}
+// 获取背景音频播放状态: 暂停：true， 播放中：false
+function getPaused(){
+  const audio = document.querySelector('#bg_music')
+  if(audio){
+    return audio.paused
+  }else{
+    return true
+  }
+}
+// 根据当前播放状态设置暂停、播放背景音乐
+function togglePalyBgm(){
+  const status = getPaused()
+  const audio = document.querySelector('#bg_music')
+  !status ? audio.pause() : audio.play()
+}
+// 存储静音模式，且控制播放
+function setPlayModel(chexVal){
+  const skinType = getLoacl({key:'skinType', isObj:false}) || 'init'
+  setLoacl({key:'hasAudioMute', val:{chexVal}})
+  changeAudio({skin: skinType})
+}
+// 设置暂停播放
+function audioToPause(flag){
+  const audio = document.querySelector('#bg_music')
+  if(audio){
+    flag ? audio.pause() : audio.play()
+  }
+}
+// 获取静音模式缓存值
+function getHasAudioMute(){
+  const hasAudioMute = getLoacl({key:'hasAudioMute'})
+  return hasAudioMute.chexVal
+}
+
+chrome.tabs.onRemoved.addListener(function(){
+  chrome.tabs.getAllInWindow(null,function(tabs){
+    const hasJueJin = tabs.some(function(item){
+      return item.url.includes('juejin')
+    })
+    !hasJueJin && audioToPause(true)
+  })
+})
 

@@ -202,10 +202,22 @@ a{
   background-color: rgba(255, 255, 255, 0.7);
   
 }
+.title-box{
+  display: flex;
+  height: 30px;
+  align-items: center;
+  padding: 0 10px;
+}
+.title-box>div{
+  display: flex;
+  
+  margin-right: 10px;
+}
 .btn-list-box{
   display: flex;
   flex-wrap: wrap;
   padding: 10px;
+  padding-top: 0;
 }
 .btn-box{
   padding: 4px 8px;
@@ -221,4 +233,16 @@ a{
 .btn-box:hover{
   background-color: #fff;
   color: #333;
+}
+.bgm-loading {
+  animation: loadingbgm 3s linear infinite;
+}
+/* bgm图标旋转 */
+@keyframes loadingbgm {
+  0% {
+      transform: rotate(0deg);
+  }
+  100% {
+      transform: rotate(360deg);
+  }
 }
