@@ -82,13 +82,26 @@ $(function () {
       $('#msgtextId').fadeOut()
     }, 3000);
   }
+  // 查询当前tab是否在掘金文章页
+  function getCurrentTab(fun){
+    chrome.tabs.query({ active: true, currentWindow: true }, function (tab) {
+      const item = tab[0]
+      if(item.url.includes('https://juejin.cn/post')){
+        fun(tab[0])
+      }else{
+        totalText('请在掘金文章详情页操作哟~')
+      }
+    })
+  }
   // 换肤、触发juejin.js 换肤方法
   $('#changeSkinId').on('click', function () {
-    $("#skinModalId").slideToggle(100)
-    const chex = BG.getHasAudioMute()
-    const opt = localStorage.getItem('bardOpacity')
-    $('#muteModelId').attr('checked', chex)
-    $('#rangeId').val(opt)
+    getCurrentTab(function(){
+      $("#skinModalId").slideToggle(100)
+      const chex = BG.getHasAudioMute()
+      const opt = localStorage.getItem('bardOpacity')
+      $('#muteModelId').attr('checked', chex)
+      $('#rangeId').val(opt)
+    })
   })
   $('#skinModalId').on('click', '.btn-box', function(){
     const type = $(this).attr('data-type')
@@ -113,8 +126,10 @@ $(function () {
   setPausedIcon()
   // 控制背景音乐播放，暂停
   $('body').on('click','#bgmIconId',function(){
-    BG.togglePalyBgm()
-    setPausedIcon()
+    getCurrentTab(function(){
+      BG.togglePalyBgm()
+      setPausedIcon()
+    })
   })
   // 控制文章背景透明度
   $('body').on('change','#rangeId',function(){
@@ -132,6 +147,7 @@ $(function () {
     const val = $(this).is(':checked')
     if(val){
       $('#bgmIconId').removeClass('bgm-loading')
+      BG.removeAudio()
     }else{
       $('#bgmIconId').addClass('bgm-loading')
     }

@@ -49,6 +49,7 @@ function skinInit(type='init'){
   const vid = $('#bg_video')
   $('body').removeClass('jj-dark-box')
   $('body').removeClass('jj-video-box')
+  $('#juejin').css('opacity',1)
   vid && vid.remove()
   $('.logo-img').attr('src','https://lf3-cdn-tos.bytescm.com/obj/static/xitu_juejin_web/e08da34488b114bd4c665ba2fa520a31.svg')
   localStorage.setItem('skinType', type)
@@ -103,6 +104,7 @@ function videoMooe(vUrl='', type='init'){
   }else{
     $('#bg_video').attr('src',vUrl)
   }
+  initBardOpacity()
   localStorage.setItem('skinType', type)
 }
 

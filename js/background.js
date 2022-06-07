@@ -180,11 +180,10 @@ function changeAudio(data){
   const audioNode = `<audio id="bg_music" class='my-audio' src='${aUrl}' controls loop autoplay></audio>`
   const hasAudioMute = getLoacl({key:'hasAudioMute'})
   if(flag){
-    $('body').append(audioNode)
+    !hasAudioMute.chexVal && $('body').append(audioNode)
   }else{
     $('#bg_music').attr('src',aUrl)
   }
-  audioToPause(hasAudioMute.chexVal)
 }
 // 获取背景缓存
 function getBgLoacl({key='', isObj=true}){
@@ -215,7 +214,7 @@ function setPlayModel(chexVal){
 function audioToPause(flag){
   const audio = document.querySelector('#bg_music')
   if(audio){
-    flag ? audio.pause() : audio.play()
+      flag ? audio.pause() : audio.play()
   }
 }
 // 获取静音模式缓存值
@@ -223,7 +222,12 @@ function getHasAudioMute(){
   const hasAudioMute = getLoacl({key:'hasAudioMute'})
   return hasAudioMute.chexVal
 }
-
+// 移除audio播放器
+function removeAudio(){
+  const aid = $('#bg_music')
+  aid && aid.remove()
+}
+// 移除掘金标签，暂停歌曲
 chrome.tabs.onRemoved.addListener(function(){
   chrome.tabs.getAllInWindow(null,function(tabs){
     const hasJueJin = tabs.some(function(item){
