@@ -178,7 +178,7 @@ function changeAudio(data){
   setLoacl({key:'skinType', val:data.skin, isObj:false})
   const flag = $('#bg_music').length <1
   const audioNode = `<audio id="bg_music" class='my-audio' src='${aUrl}' controls loop autoplay></audio>`
-  const hasAudioMute = getLoacl({key:'hasAudioMute'})
+  const hasAudioMute = getLoacl({key:'hasAudioMute'}) || {chexVal:false}
   if(flag){
     !hasAudioMute.chexVal && $('body').append(audioNode)
   }else{
@@ -219,7 +219,7 @@ function audioToPause(flag){
 }
 // 获取静音模式缓存值
 function getHasAudioMute(){
-  const hasAudioMute = getLoacl({key:'hasAudioMute'})
+  const hasAudioMute = getLoacl({key:'hasAudioMute'}) || {chexVal:false}
   return hasAudioMute.chexVal
 }
 // 移除audio播放器
