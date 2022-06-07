@@ -159,7 +159,7 @@ chrome.tabs.onUpdated.addListener(function(tabId,changeInfo,curtab){
     const skinType = getLoacl({key:'skinType', isObj:false}) || 'init'
     const hasJueJin = curtab.url.includes('https://juejin.cn/post')
     if((skinType!=='init' || skinType !== 'dark') && hasJueJin){
-      changeAudio({skin: skinType})
+      !curtab.url.includes('#') && changeAudio({skin: skinType})
     }
   }
 });

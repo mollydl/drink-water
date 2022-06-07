@@ -21,9 +21,11 @@ a{
   height: 200px;
   width: 400px;
   overflow-y: hidden;
-  background: url('../img/back.jpg') no-repeat;
-  background-size: 100% 100% ;
   position: relative;
+}
+.max-bgimg-0{
+  background: url('../img/popupBgimg/bgimg-0.jpg') no-repeat;
+  background-size: 100% 100% ;
 }
 .xiaoyazi{
   height: 40px;
@@ -53,15 +55,15 @@ a{
 }
 /* 进度条 */
 .seep-box{
-  background-color: #e1666b;
-  height: 10px;
+  background-color: rgba(255, 255, 255, 0.5);
+  height: 6px;
   width: 100%;
   position: absolute;
   bottom: 0;
   left: 0;
 }
 .seep-box>.seep-item{
-  background-image: linear-gradient(to right,yellow, red);
+  background-image: linear-gradient(to right,#00f2fe, #4facfe);
   height: 100%;
   width: 0%;
   transition: all 0.3s;

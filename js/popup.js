@@ -153,5 +153,32 @@ $(function () {
     }
     BG.setPlayModel(val)
   })
+  // 切换popup背景图片
+  const imgList = [
+    '../img/popupBgimg/bgimg-0.jpg',
+    '../img/popupBgimg/bgimg-1.jpg',
+    '../img/popupBgimg/bgimg-2.jpg',
+    '../img/popupBgimg/bgimg-3.jpg',
+    '../img/popupBgimg/bgimg-4.jpg',
+    '../img/popupBgimg/bgimg-5.jpg',
+    '../img/popupBgimg/bgimg-6.jpg',
+    '../img/popupBgimg/bgimg-7.jpg',
+    '../img/popupBgimg/bgimg-8.jpg',
+    '../img/popupBgimg/bgimg-9.jpg',
+    '../img/popupBgimg/bgimg-10.jpg',
+    '../img/popupBgimg/bgimg-11.jpg',
+  ]
+  $('body').on('click','#bgImgChangeId',function(){
+    const le = imgList.length 
+    const num = Math.floor(Math.random() * le) ;
+    $('#maxBoxId').css('background-image',`url(${imgList[num]})`);
+    localStorage.setItem('popupBgimg',num)
+  })
+  // 初始化popup背景图
+  function initBgimg(){
+    const num = +localStorage.getItem('popupBgimg') || 0
+    $('#maxBoxId').css('background-image',`url(${imgList[num]})`);
+  }
+  initBgimg()
 })
 
