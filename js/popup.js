@@ -50,6 +50,24 @@ $(function () {
       $('#xiaoyaziId').addClass('roasted-duck')
     }
   }
+  // 点击小鸭子，弹出对话
+  $('body').on('click','#xiaoyaziId',fangdou(showTalk))
+  function showTalk(){
+    const sayList = [
+      '戳我干嘛？快喝水',
+      '戳戳戳，就知道戳我，快去写BUG',
+      '一杯茶，一包烟，一个BUG改一天',
+      '忙一天了，去摸鱼办看看热搜新鲜事儿',
+      '世上无难事，只要肯放弃',
+      '只要思想不滑坡，办法总比困难多',
+      '起来扭扭腰，动动脖吧',
+      '我是一只小黄鸭，天大地大我最大',
+      '嘘！老板在你身后盯着你呢',
+      '我不想变烤鸭！呜呜呜~',
+    ]
+    const num = Math.floor(Math.random() * sayList.length) || 0
+    totalText(sayList[num])
+  }
   // 显示弹层
   $('#setupId').on('click', function () {
     const {
@@ -75,10 +93,12 @@ $(function () {
     flag ? totalText('黑魔法让时间暂停了') : totalText('时间恢复，快乐喝水吧~')
   })
   // 轻提示
+  let timeOut = null
   function totalText(text = '温馨提示') {
     $('#msgtextId').text(text)
     $('#msgtextId').fadeIn()
-    setTimeout(() => {
+    clearTimeout(timeOut)
+    timeOut = setTimeout(() => {
       $('#msgtextId').fadeOut()
     }, 3000);
   }
@@ -168,16 +188,17 @@ $(function () {
     '../img/popupBgimg/bgimg-10.jpg',
     '../img/popupBgimg/bgimg-11.jpg',
   ]
-  $('body').on('click','#bgImgChangeId',function(){
+  $('body').on('click','#bgImgChangeId',fangdou(changeBgImg))
+  function changeBgImg(){
     const le = imgList.length 
-    const num = Math.floor(Math.random() * le) ;
-    $('#maxBoxId').css('background-image',`url(${imgList[num]})`);
+    const num = Math.floor(Math.random() * le) || 0
+    $('#maxBoxId').css('background-image',`url(${imgList[num]})`)
     localStorage.setItem('popupBgimg',num)
-  })
+  }
   // 初始化popup背景图
   function initBgimg(){
     const num = +localStorage.getItem('popupBgimg') || 0
-    $('#maxBoxId').css('background-image',`url(${imgList[num]})`);
+    $('#maxBoxId').css('background-image',`url(${imgList[num]})`)
   }
   initBgimg()
 })

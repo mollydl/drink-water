@@ -37,6 +37,7 @@ a{
   left: calc(0% - 20px);
   transition: all 0.3s;
   animation: duck 0.5s linear infinite alternate;
+  cursor: pointer;
 }
 @keyframes duck{
   0% {
@@ -45,6 +46,11 @@ a{
   100% {
     transform: rotate(10deg);
   }
+}
+.xiaoyazi:hover{
+  height: 50px;
+  width: 50px;
+  transition: all 0.3s;
 }
 .roasted-duck{
   height: 50px;
