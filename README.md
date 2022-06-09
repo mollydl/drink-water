@@ -5,9 +5,7 @@
 😲身体是革命的本钱，小鸭子为了让大家喝水也是操碎了心，请大家爱惜身体，悉心照顾好小鸭子~~~
 
 <div align="center">
-  <img width="30%" src="http://tool.edian.xyz/xiaoyazi/heshui.jpg">
-  <img width="30%" src="http://tool.edian.xyz/xiaoyazi/baner1.jpg">
-  <img width="30%" src="http://tool.edian.xyz/xiaoyazi/baner2.jpg">
+  <img width="50%" src="http://tool.edian.xyz/xiaoyazi/heshui.jpg">
 </div>
 
 ## 主要功能
@@ -21,10 +19,21 @@
 - 小鸭子支持自定义喝水时间间隔以及提醒文案
 
 - 小鸭子支持暂停喝水时间
+  
+- 支持掘金换肤，为你提供沉浸式阅读体验
+
+- 多款皮肤，支持视频模式和护眼模式
+
+- 提供丰富表情包大全，方便创作时随时谁地添加小表情
+
+- 摸鱼办提醒你该摸鱼啦，看看最近热搜趣事
+
+- 丰富的背景卡片素材图，快速切换
 
 ### ❤️温馨提示
 
-请将小鸭子固定到插件栏，以便更容易观察到小鸭子动态，及时喝水
+- 点击小黄鸭可触发对话
+- 请将小鸭子固定到插件栏，以便更容易观察到小鸭子动态，及时喝水
 
 目前**水货**已上架到谷歌插件应用市场，欢迎大家下载😄
 
@@ -32,20 +41,13 @@
 
 ### ❤️感谢
 
-海阔凭鱼跃，天高任鸟飞。Hey 你好！我是秦爱德。欢迎关注我的个人公众号【前端秦爱德】，每天给你推送新鲜的优质好文。回复 “福利” 即可获得我精心准备的前端学习大礼包。愿你一路前行，眼里有光。
+海阔凭鱼跃，天高任鸟飞。Hey 你好！我是猫力Molly。欢迎关注我的个人微信公众号【前端有猫腻】，每天给你推送新鲜的优质好文。愿你一路前行，眼里有光。
 
-微信搜索【前端秦爱德】
+微信号：【yuyue540880】添加好友，拉你进群和众多前端小伙伴一起交流学习
 
-掘金搜索：【前端秦爱德】
-
-segmentfault搜索：【前端秦爱德】
-
-CSDN搜索：【前端秦爱德】
-
-知乎搜索：【前端秦爱德】
 
 <div align="center">
-  <img width="70%" src="http://tool.edian.xyz/wechatOffice/saomajiawo.jpg">
+  <img width="70%" src="https://raw.githubusercontent.com/mollydl/img-collection/main/weChat/jiahaoyou.jpg">
 </div>
 
 
